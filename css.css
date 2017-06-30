@@ -1,0 +1,56 @@
+h1{
+	margin: 20px;
+	font-size: 0.8em;
+}
+#MAIN_WND{
+	margin: auto;
+	width: 640px;
+}
+#QUESTION{
+	margin: 20px;
+}
+input{
+	border:0;
+	padding:10px;
+	font-size:1.3em;
+	color:#000;
+	border:solid 1px #ccc;
+	margin:0 0 20px;
+	width:500px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance:textfield;
+}
+
+input:focus {
+    border:solid 1px #EEA34A;
+}
+
+button{
+	margin: auto;
+	width: 300px;
+	border:solid 1px #ccc;
+	padding:15px 30px;
+	margin:0 0 20px;
+	font-family:Arial, sans-serif;
+	font-size:1.2em;
+	text-transform:uppercase;
+	font-weight:bold;
+	color:#333;
+	cursor:pointer;
+}
+hr {
+	background-color: #fff;
+	border-top: 2px dotted #bbb;
+}
+label{
+	font-size: 2em;
+}

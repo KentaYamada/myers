@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta name="viewport" content="width=640, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="triangle.js" type="text/javascript" charset="UTF-8"></script>
+	<link href="css.css" rel="stylesheet" type="text/css">
+	<title>マイヤーズの三角形問題</title>
+</head>
+<body>
+	<div id="MAIN_WND">
+		<h1>マイヤーズの三角形問題</h1>
+		
+		<div id="QUESTION">
+			【問題】<br>
+			このプログラムは入力ダイアログから3つの整数を読む。<br>
+			この3つの値は、それぞれ三角形の3辺の長さをあらわすものとする。<br>
+			プログラムは、三角形が不等辺三角形、二等辺三角形、正三角形のうちどれであるかを示すメッセージを表示する。<br>
+		</div>
+		<div>
+			<p>
+				辺A : <input id="SIDE_A" type="number" maxlength="5" max="99999" min="1">
+			</p>
+
+			<p>
+				辺B : <input id="SIDE_B" type="number" maxlength="5" max="99999" min="1">
+			</p>
+
+			<p>
+				辺C : <input id="SIDE_C" type="number" maxlength="5" max="99999" min="1">
+			</p>
+			<p>
+				<center><button onclick="main()">表示</button></center>
+			</p>
+			</div>
+
+		<hr>
+
+		<div>
+			<center><label id="DISPLAY"></label></center>
+		</div>
+
+		<div>
+			出典：<a href="https://www.amazon.co.jp/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%BB%E3%83%86%E3%82%B9%E3%83%88%E3%81%AE%E6%8A%80%E6%B3%95-%E7%AC%AC2%E7%89%88-J-%E3%83%9E%E3%82%A4%E3%83%A4%E3%83%BC%E3%82%BA/dp/4764903296">ソフトウェア・テストの技法</a>
+		</div>
+	</div>
+</body>
+</html>
