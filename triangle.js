@@ -1,39 +1,48 @@
-function main(){
+function getElementValues(){
+	var valueList = [
+		document.getElementById("SIDE_A").value,
+		document.getElementById("SIDE_B").value,
+		document.getElementById("SIDE_C").value
+	];
+	main(valueList);
+}
 
-	//浮動小数点16桁以上対策（0.99999999999999999 が文字列として処理され変換の過程で1に丸められる
-	if((!isNumber(document.getElementById("SIDE_A").value)) || 
-	   (!isNumber(document.getElementById("SIDE_B").value)) ||
-	   (!isNumber(document.getElementById("SIDE_C").value))
-	  ){
-		display("入力は1~99999の整数のみです");
-		return;
+function main(valueList){
+	var side = new Array(valueList.length);
+	for(var i = 0; i < valueList.length; i++){
+		if((valueList[i] == null) ||
+		   (!isNumber(valueList[i]))
+		){
+			ans = display("入力は1~99999の整数のみです");
+			return ans;
+		}
+		else{
+			side[i] = Number(valueList[i])
+		}
 	}
 
-	var side = [
-		Number(document.getElementById("SIDE_A").value),
-		Number(document.getElementById("SIDE_B").value),
-		Number(document.getElementById("SIDE_C").value)
-	];
-
 	if(!isInteger(side)){
-		display("入力は1~99999の整数のみです");
-		return;
+		ans = display("入力は1~99999の整数のみです");
+		return ans;
 	}
 
 	if(!isTriangle(side)){
-		display("三角形が成立しません");
-		return;
+		ans = display("三角形が成立しません");
+		return ans;
 	}
 
-	display(getTriangleName(side));
+	ans = display(getTriangleName(side));
+	return ans;
 }
 //表示
 function display(displayString){
 	document.getElementById("DISPLAY").innerText = displayString;
+	return displayString
 }
 
+//整数チェック
 function isNumber(value){
-	return value.match(/^[1-9]\d*|0{1,5}$/) ? true : false
+	return value.match(/^([1-9]\d*)$/) ? true : false
 }
 
 //数字のみか確認
