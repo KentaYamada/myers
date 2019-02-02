@@ -1,5 +1,14 @@
 function main(){
 
+	//浮動小数点16桁以上対策（0.99999999999999999 が文字列として処理され変換の過程で1に丸められる
+	if((!isNumber(document.getElementById("SIDE_A").value)) || 
+	   (!isNumber(document.getElementById("SIDE_B").value)) ||
+	   (!isNumber(document.getElementById("SIDE_C").value))
+	  ){
+		display("入力は1~99999の整数のみです");
+		return;
+	}
+
 	var side = [
 		Number(document.getElementById("SIDE_A").value),
 		Number(document.getElementById("SIDE_B").value),
@@ -23,13 +32,16 @@ function display(displayString){
 	document.getElementById("DISPLAY").innerText = displayString;
 }
 
+function isNumber(value){
+	return value.match(/^[1-9]\d*|0{1,5}$/) ? true : false
+}
 
 //数字のみか確認
 function isInteger(side){
 	for(var value of side){
 		if((value < 1)     ||
 		   (value > 99999) ||
-		   (isNaN(value))  || 
+		   (isNaN(value))  ||
 		   (Math.round(value) !== value)
 		 ){
 			 return false;	
