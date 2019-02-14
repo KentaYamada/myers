@@ -1,39 +1,33 @@
 function getElementValues(){
-	var valueList = [
+	main([
 		document.getElementById("SIDE_A").value,
 		document.getElementById("SIDE_B").value,
 		document.getElementById("SIDE_C").value
-	];
-	main(valueList);
+    ]);
 }
 
 function main(valueList){
-	var side = new Array(valueList.length);
-	for(var i = 0; i < valueList.length; i++){
-		if((valueList[i] == null) ||
-		   (!isNumber(valueList[i]))
-		){
-			ans = display("入力は1~99999の整数のみです");
-			return ans;
-		}
-		else{
-			side[i] = Number(valueList[i])
-		}
-	}
+    let side = [];
+
+    for (let value of valueList) {
+        if (value === null || !isNumber(value)) {
+            return display("入力は1~99999の整数のみです");
+        }
+
+        side.push(parseInt(value, 10));
+    }
 
 	if(!isInteger(side)){
-		ans = display("入力は1~99999の整数のみです");
-		return ans;
+		return display("入力は1~99999の整数のみです");
 	}
 
 	if(!isTriangle(side)){
-		ans = display("三角形が成立しません");
-		return ans;
+		return display("三角形が成立しません");
 	}
 
-	ans = display(getTriangleName(side));
-	return ans;
+	return display(getTriangleName(side));
 }
+
 //表示
 function display(displayString){
 	document.getElementById("DISPLAY").innerText = displayString;
@@ -47,7 +41,7 @@ function isNumber(value){
 
 //数字のみか確認
 function isInteger(side){
-	for(var value of side){
+	for(let value of side){
 		if((value < 1)     ||
 		   (value > 99999) ||
 		   (isNaN(value))  ||
@@ -65,7 +59,7 @@ function isTriangle(side){
 	side = side.sort(function(a, b){
 		return a - b;
 	});
-	return (side[0] + side[1] > side[2]) ? true : false;
+	return (side[0] + side[1] > side[2]);
 }
 
 //三角形確認
